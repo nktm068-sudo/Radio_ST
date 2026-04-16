@@ -27,13 +27,19 @@
             width: 350px; /* Сделали шире */
             box-shadow: 0 0 50px rgba(82,136,193,0.4); 
             transition: 0.5s;
-        }
-        
-        .logo { 
-            width: 150px; /* Иконка теперь БОЛЬШАЯ */
-            margin-bottom: 25px; 
-            filter: drop-shadow(0 0 15px #5288c1); 
-        }
+               display: flex;
+    flex-direction: column;
+    align-items: center; /* ЦЕНТРИРУЕТ ВСЁ ПО ГОРИЗОНТАЛИ */
+    justify-content: center; /* ЦЕНТРИРУЕТ ВСЁ ПО ВЕРТИКАЛИ ВНУТРИ */
+    margin: auto; /* ВЫРАВНИВАЕТ САМ БЛОК ПО ЦЕНТРУ ЭКРАНА */
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 25px auto; /* ГАРАНТИРУЕТ ЦЕНТРОВКУ КАРТИНКИ */
+    width: 150px; /* Твоя мощная большая иконка */
+    filter: drop-shadow(0 0 15px #5288c1);
+}
 
         .btn { 
             background: #5288c1; 
