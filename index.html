@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ST-Radio | Energy Control</title>
+    <style>
+        body { background: #0e1621; color: white; font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .radio-box { background: #17212b; padding: 30px; border-radius: 20px; border: 2px solid #5288c1; text-align: center; width: 250px; box-shadow: 0 0 20px rgba(82,136,193,0.3); }
+        .logo { width: 70px; margin-bottom: 10px; filter: drop-shadow(0 0 8px #ff0000); }
+        .btn { 
+            background: #5288c1; color: white; border: none; padding: 12px 25px; border-radius: 10px; 
+            font-weight: bold; cursor: pointer; transition: 0.3s; width: 100%; letter-spacing: 1px;
+        }
+        .btn.playing { background: #ff4d4d; box-shadow: 0 0 15px #ff4d4d; }
+        .status { font-size: 10px; margin-top: 15px; opacity: 0.5; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<div class="radio-box">
+   <img src="Radio.png" class="logo">
+    <h3 style="font-size: 14px; margin-bottom: 20px;">ST-RADIO MODULE</h3>
+    
+    <!-- КНОПКА УПРАВЛЕНИЯ -->
+    <button id="playBtn" class="btn" onclick="toggleRadio()">ВКЛЮЧИТЬ ЭФИР</button>
+    
+    <div id="info" class="status">СИСТЕМА ГОТОВА</div>
+</div>
+
+<!-- СКРЫТЫЙ ПЛЕЕР -->
+<audio id="radioPlayer">
+    <source src="https://energy.hostingradio.ru/energy128" type="audio/mpeg">
+</audio>
+
+<script>
+    const player = document.getElementById('radioPlayer');
+    const btn = document.getElementById('playBtn');
+    const info = document.getElementById('info');
+
+    function toggleRadio() {
+        if (player.paused) {
+            // ВКЛЮЧАЕМ
+            player.play();
+            btn.innerText = "ВЫКЛЮЧИТЬ";
+            btn.classList.add('playing');
+            info.innerText = "● В ЭФИРЕ: ENERGY";
+        } else {
+            // ВЫКЛЮЧАЕМ
+            player.pause();
+            btn.innerText = "ВКЛЮЧИТЬ ЭФИР";
+            btn.classList.remove('playing');
+            info.innerText = "ЭФИР ОСТАНОВЛЕН";
+        }
+    }
+</script>
+<footer style="margin-top: 20px; font-size: 10px; color: #5288c1; opacity: 0.6; text-align: center; font-family: sans-serif; line-height: 1.5;">
+    <p>© 2026 SpeedTehnology (ST). Все права защищены.</p>
+    <p style="padding: 0 30px;">
+        Внимание: Данный программный модуль является частной некоммерческой разработкой в образовательных целях. 
+        Аудиопоток транслируется из открытых источников. Все права на контент принадлежат их законным правообладателям. 
+        По вопросам авторских прав или удаления доступа, пожалуйста, свяжитесь по адресу: 
+        <span style="color: #ffffff; text-decoration: underline;">nktm2017@gmail.com</span>
+    </p>
+</footer>
+
+</body>
+</html>
